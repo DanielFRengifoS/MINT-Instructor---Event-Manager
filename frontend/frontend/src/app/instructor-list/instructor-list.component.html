@@ -1,0 +1,12 @@
+<div class="instructor-list">
+  <h2>Instructor List</h2>
+  <p *ngIf="isLoading">Loading instructors...</p>
+  <ul *ngIf="!isLoading && instructors.length > 0">
+    <li *ngFor="let instructor of instructors">
+      <a [routerLink]="['/instructor', instructor.id]">
+        * {{ instructor.firstName }} {{ instructor.lastName }} *
+      </a>
+    </li>
+  </ul>
+  <p *ngIf="!isLoading && instructors.length === 0">No instructors available.</p>
+</div>

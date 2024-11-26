@@ -1,0 +1,60 @@
+Instructor Scheduler
+
+The Instructor Scheduler is a web application designed to manage instructor schedules effortlessly. It allows users to view, create, edit, and delete events for instructors in a user-friendly interface.
+Features
+
+    View the list of instructors.
+    View detailed information about a specific instructor, including their events.
+    Add, edit, and delete events for an instructor.
+    Check for overlapping events and calculate total event durations.
+
+Technologies Used
+
+    Backend: Java Spring Boot
+    Frontend: Angular
+    Database: H2 (default, in-memory), or configure your own database (e.g., MySQL).
+
+Setup Instructions
+Prerequisites
+
+    Java Development Kit (JDK) 17 or later
+    Node.js (v14 or later)
+    Angular CLI (v15 or later)
+
+Backend: Spring Boot
+
+    Navigate to the backend directory:
+
+cd backend
+
+Run the Spring Boot application:
+
+./gradlew clean build
+
+./gradlew bootrun
+
+
+Frontend: Angular
+
+    Navigate to the frontend directory:
+
+cd frontend
+
+Install dependencies:
+
+npm install
+
+Run the Angular development server:
+
+    ng serve
+
+    Verify the frontend is running:
+        The frontend should be accessible at http://localhost:4200.
+
+API Endpoints
+Endpoint	Method	Description
+/api/instructors	GET	Retrieve all instructors
+/api/instructors/{id}	GET	Retrieve an instructor by ID
+/api/instructors/{id}/events	PUT	Update events for an instructor
+/api/events/{id}	DELETE	Delete an event by ID
+/api/events/{id}	GET	Retrieve event details by ID

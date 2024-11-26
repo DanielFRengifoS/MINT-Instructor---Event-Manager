@@ -1,0 +1,71 @@
+<div class="event-form">
+  <h2>Create Event</h2>
+  <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+    <label for="type">Event Type:</label>
+    <select
+      id="type"
+      [(ngModel)]="event.type"
+      name="type"
+      required
+      #type="ngModel"
+    >
+      <option value="" disabled>Select Event Type</option>
+      <option *ngFor="let type of eventTypes" [value]="type">{{ type }}</option>
+    </select>
+    <div *ngIf="type.invalid && type.touched" class="error">
+      Event type is required and must be valid.
+    </div>
+
+    <label for="description">Description:</label>
+    <input
+      type="text"
+      id="description"
+      [(ngModel)]="event.description"
+      name="description"
+      required
+      #description="ngModel"
+    />
+    <div *ngIf="description.invalid && description.touched" class="error">
+      Description is required.
+    </div>
+
+    <label for="startDate">Start Date:</label>
+    <input
+      type="date"
+      id="startDate"
+      [(ngModel)]="event.startDate"
+      name="startDate"
+      required
+      #startDate="ngModel"
+    />
+    <div *ngIf="startDate.invalid && startDate.touched" class="error">
+      Start date is required.
+    </div>
+
+    <label for="endDate">End Date:</label>
+    <input
+      type="date"
+      id="endDate"
+      [(ngModel)]="event.endDate"
+      name="endDate"
+      required
+      #endDate="ngModel"
+    />
+    <div *ngIf="endDate.invalid && endDate.touched" class="error">
+      End date is required.
+    </div>
+    <div *ngIf="dateError" class="error">
+      Start date must be before the end date.
+    </div>
+
+    <div class="form-buttons">
+      <button
+        type="submit"
+        [disabled]="eventForm.invalid || dateError"
+      >
+        Create Event
+      </button>
+      <button type="button" routerLink="/instructors">Cancel</button>
+    </div>
+  </form>
+</div>

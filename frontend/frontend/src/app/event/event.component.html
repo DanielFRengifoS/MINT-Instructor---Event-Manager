@@ -1,0 +1,13 @@
+<div class="event-details">
+  <h2>Event Details</h2>
+  <p *ngIf="isLoading">Loading event details...</p>
+  <div *ngIf="!isLoading && event">
+    <p><strong>Type:</strong> {{ event.type }}</p>
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    <p><strong>Start Date:</strong> {{ formatDate(event.startDate) }}</p>
+    <p><strong>End Date:</strong> {{ formatDate(event.endDate) }}</p>
+    <p><strong>Duration:</strong> {{ calculateDuration(event.startDate, event.endDate) }} days</p>
+  </div>
+  <p *ngIf="!isLoading && !event">Event not found.</p>
+  <button routerLink="/">Back to Home</button>
+</div>

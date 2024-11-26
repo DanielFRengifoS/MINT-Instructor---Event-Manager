@@ -1,0 +1,82 @@
+.instructor-details {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f1f8e9;
+  font-family: Arial, sans-serif;
+}
+
+.instructor-details h2 {
+  color: #4caf50;
+}
+
+.instructor-details p {
+  margin: 0.5rem 0;
+}
+
+.buttons {
+  margin-bottom: 1rem;
+}
+
+.buttons button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.event-buttons button {
+  margin: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.event-buttons button:hover {
+  background-color: #45a049;
+}
+
+
+.buttons button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-item {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.event-item div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.event-buttons button {
+  margin: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.event-buttons button:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,35 @@
+<div class="instructor-details">
+  <h2>Instructor Details</h2>
+  <p *ngIf="isLoading">Loading instructor details...</p>
+  <div *ngIf="!isLoading && instructor">
+    <div class="buttons">
+      <button routerLink="/instructors">Back</button>
+      <button [routerLink]="['/instructor', instructor.id, 'event-create']">Add Event</button>
+    </div>
+
+    <p><strong>Name:</strong> {{ instructor.firstName }} {{ instructor.lastName }}</p>
+    <p><strong>Total Duration of Events:</strong> {{ totalDuration }} days</p>
+    <p *ngIf="hasOverlap" class="warning">⚠️ Some events overlap!</p>
+
+    <p><strong>Upcoming Events:</strong></p>
+    <ul *ngIf="sortedEvents && sortedEvents.length > 0">
+      <li *ngFor="let event of sortedEvents" class="event-item">
+        <div>
+          <span>
+            {{ event.type }}: {{ event.description }}
+            ({{ formatDate(event.startDate) }} - {{ formatDate(event.endDate) }})
+            <br>
+            <strong>Duration:</strong> {{ calculateDuration(event.startDate, event.endDate) }} days
+          </span>
+          <div class="event-buttons">
+            <button [routerLink]="['/event', event.id]">View</button>
+            <button [routerLink]="['/instructor', instructor.id, 'event-edit', event.id]">Edit</button>
+            <button (click)="deleteEvent(event.id)">Delete</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <p *ngIf="!sortedEvents || sortedEvents.length === 0">No events!</p>
+  </div>
+  <p *ngIf="!isLoading && !instructor">Instructor not found.</p>
+</div>
